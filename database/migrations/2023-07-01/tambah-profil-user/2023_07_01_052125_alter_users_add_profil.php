@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterUsersAddLevel extends Migration
+class AlterUsersAddProfil extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterUsersAddLevel extends Migration
     public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->integer('level')->nullable()->default(1)->after('password');
+        $table->integer('profil_id')->nullable()->after('level');
     });
 }
 

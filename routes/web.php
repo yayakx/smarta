@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('dashboard');
 })->middleware(['auth'])->name('welcome');;
 
 Route::get('/dashboard', function () {
@@ -28,5 +29,28 @@ Route::get('/statistik', function () {
 Route::get('/about', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('about');
+
+Route::get('/about', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('data-user');
+
+
+Route::get('/profil', [Controller::class, 'profil'])
+    ->middleware(['auth'])
+    ->name('profil');
+
+Route::post('/profil/update', [Controller::class, 'updateProfil'])
+    ->middleware(['auth'])
+    ->name('update-profil');
+
+Route::post('/profil/update-alamat', [Controller::class, 'updateAlamatdanKontak'])
+    ->middleware(['auth'])
+    ->name('update-alamat');
+
+    Route::post('/profil/update-foto', [Controller::class, 'updateFoto'])
+    ->middleware(['auth'])
+    ->name('update-foto');
+
+
 
 require __DIR__.'/auth.php';

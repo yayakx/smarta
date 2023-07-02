@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
     ];
 
     /**
@@ -41,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profil() {
+        return $this->hasOne(\App\Models\ProfilUser ::class, 'user_id', 'id');
+    }
+
+    public function level_user() {
+        return $this->hasOne(\App\Models\LevelUser ::class, 'id', 'level');
+    }
 }
