@@ -83,19 +83,31 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Link</th>
                             <th>Kategori</th>
                             <th>Skala</th>
-                            <th>Tanggal Ditambahkan</th>
+                            <th>Status</th>
+                            <th>Tanggal Ditambahkan</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Pembuatan Aplikasi SMART-A Menggunakan Metode Waterfall dan Laravel</td>
-                            <td>Artikel</td>
-                            <td>Nasional</td>
-                            <td>01-07-2023</td>
-                        </tr>
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($berkas as $item)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td>{{ $item->judul ?? '' }}</td>
+                                <td><a href="{{$item->link}}" target="_blank">Buka Berkas</a></td>
+                                <td>{{ $item->kategori->nama ?? '' }}</td>
+                                <td>{{ $item->skala->nama ?? '' }}</td>
+                                <td>@if($item->is_verified)<span class="badge bg-success">Terverifikasi</span>@else<span class="badge bg-danger">Belum diverifikasi</span>@endif</td>
+                                <td>{{ $item->created_at->format('d-m-Y') ?? '' }}</td>                                
+                            </tr>
+                            @php
+                                $i++;
+                            @endphp
+                        @endforeach
                     </tbody>
                 </table>
             </div>

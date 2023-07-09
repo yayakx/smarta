@@ -20,21 +20,22 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <header class="bg-primary">
-        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+        <nav class="navbar navbar-expand-lg pt-4 pb-4 navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#">SMART-A</a>
+                <img src="{{asset('img/logo-unesa.png')}}" class="d-block me-3" style="width:50px"/>
+                <a class="navbar-brand text-light" href="#">UnesaWriting.ID</a>
                 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarID"
                     aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="text-light navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarID">
-                    <div class="navbar-nav">
-                        <a href="{{ route('statistik') }}" class="btn btn-primary text-light">Statistik</a>
-                        {{-- <a href="{{ route('about') }}" class="ml-4 btn btn-primary text-light">Tentang</a> --}}
+                    <div class="navbar-nav">                        
                     </div>
                     <div class="navbar-nav ms-auto">
-                        <a href="{{ route('login') }}" class="btn btn-primary border-light text-sm text-light"><i class="fa fa-right-to-bracket"></i> Masuk</a>
-                        <a href="{{ route('register') }}" class="ml-4 btn btn-primary border-light text-sm text-light"><i class="fa fa-user"></i> Daftar</a>
+                        <a href="{{ route('statistik') }}" class="btn btn-lg btn-dark border-light text-light">Ekosistem</a>
+                        <a href="{{ route('statistik') }}" class="ms-4 me-4 btn btn-lg btn-dark border-light text-light">Tentang</a>
+                        <a href="{{ route('login') }}" class="btn btn-lg btn-dark border-light text-light"><i class="fa fa-right-to-bracket"></i> Masuk</a>
+                        {{-- <a href="{{ route('register') }}" class="ml-4 btn btn-primary border-light text-sm text-light"><i class="fa fa-user"></i> Daftar</a> --}}
                     </div>
                 </div>
             </div>
